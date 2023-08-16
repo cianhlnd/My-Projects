@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <h1>
+  Student Grades Table
+  </h1> 
+<style>
+.body{
+  font-family: 'lucida grande';
+  font-size: 1.0em;
+}
+.myTable{
+  text-align: right;
+}
+.tr{
+  text-align: right;
+}
+
+.button {
+  text-align: center;
+  padding: 10px;
+  font-family: sans-serif;
+}
+</style>
+</head>
+<body onload="Edit()">
+    <table class="Table" id="Grades">
+      <tr>
+        <th>Student Name</th>
+        <th>Student I.D.</th>
+        <th>Assignment 01</th>
+        <th>Assignment 02</th>
+        <th>Assignment 03</th>
+        <th>Assignment 04</th>
+        <th>Assignment 05</th>
+        <th>Average (%)</th>
+      </tr>
+        
+      <tr>
+        <td>Michael McDonald</td>
+        <td>20100001</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Paul Simpson</td>
+        <td>20100002</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Lisa Maguire</td>
+        <td>20100003</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Phil O'Brien</td>
+        <td>20100004</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Jenny Shiels</td>
+        <td>20100005</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Luke Smith</td>
+        <td>20100006</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>David Arbour</td>
+        <td>20100007</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Patricia Joyce</td>
+        <td>20100008</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Tony Galichini</td>
+        <td>20100009</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Ciara Bridger</td>
+        <td>20100010</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    
+    </body>
+</table>
+<div>
+  <button type="button" onclick="addRow()">Add row</button>
+  <button onclick="addColumn()">Add column</button>
+</div>
+
+  
+  <table class="Table" id="Unsubmitted">
+    <thead>
+      <tr>
+          <th class="head">Unsubmitted</th>
+      </tr>
+    </thead>
+      <tr>
+          <td>-</td>
+      </tr>
+  </table>
+ <div class="button" id="button">
+    <button class="button" onClick="Average(); Unsubmitted()">Calculate Grade</button>
+  </div>
+<script>
+
+var table = document.querySelector('Table');
+var dataCells = table.querySelectorAll('tr > td');
+var rows = table.querySelectorAll('tr');
+var code = document.querySelector('code');
+rows = Array.prototype.slice.call(rows, 1);
+var ncols = rows[0].children.length - 1;
+
+var initialData = {0:[1,2,3,4,5],1:[6,7,8,9,10],2:[11,12,13,14,15]};
+
+function addRow() {
+  var table = document.getElementById("Grades");
+  var row = table.insertRow(-1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  var cell7 = row.insertCell(6);
+  var cell8 = row.insertCell(7);
+  cell1.innerHTML = "Name";
+  cell2.innerHTML = "Number";
+  cell3.innerHTML = "-";
+  cell4.innerHTML = "-";
+  cell5.innerHTML = "-";
+  cell6.innerHTML = "-";
+  cell7.innerHTML = "-";
+  cell8.innerHTML = "-";
+}
+
+function addColumn() {
+    var tbl = document.getElementById('Grades'), 
+        i;
+  
+    for (i = 0; i < tbl.rows.length; i++) {
+        createCell(tbl.rows[i].insertCell(tbl.rows[i].cells.length), i, 'col');
+    }
+}
+
+function createCell(cell, text, style) {
+    var div = document.createElement('div'), 
+        txt = document.createTextNode(text); 
+    div.appendChild(txt);                   
+    div.setAttribute('class', style);        
+    div.setAttribute('className', style);    
+    cell.appendChild(div);                  
+}
+
+
+function Edit() {
+  for (var i = 1; i < 11; i++) {
+    for (var j = 2; j < 7; j++) {
+      document.getElementById("Grades").rows[i].cells[j].contentEditable = true; 
+      //make every cell in table editable where contentEditable hasn't been set to false in HTML
+    }
+  }
+}
+
+
+function Unsubmitted() {
+  var table = document.getElementById("Grades");
+  var rows = table.rows.length;
+  var cols = table.rows[0].cells.length;
+  var Unsubcount = 0;
+  
+  for (var i = 1; i < rows; i++) {
+    for (var j = 2; j < (cols - 1); j++) {
+      var add = table.rows[i].cells[j]; //go through every cell
+      if (add.innerHTML === '-' || add.innerHTML === '') {
+       Unsubcount++; //if they are empty increment unsubmitted count
+      }
+    }
+  }
+  
+  Average();
+  
+  var Unsub = document.getElementById("Unsubmitted");
+  var Unsubrows = Unsub.rows;
+  Unsubrows[1].style.backgroundColor = "orange";
+  Unsubrows[1].style.color = "white";
+  Unsubrows[1].style.textAlign = "right";
+  Unsubrows[1].innerHTML = "<td>" + Unsubcount + "</td>"; //show count how unsubmitted assignments
+  if(Unsubcount == 0) { //change colour when there are no unsubmitted assignments
+    Unsubrows[1].style.backgroundColor = "white";
+    Unsubrows[1].style.color = "black";
+    Unsubrows[1].style.textAlign = "right";
+  }
+}
+
+
+function Average() {
+  var table = document.getElementById("Grades");
+  var rows = table.rows;
+  
+  for (var i = 1; i < rows.length; i++) {
+    var cells = rows[i].cells;
+    var sum = 0;
+
+    for (var j = 2; j < (cells.length - 1); j++) {
+      var cell = cells[j];
+      var num = parseInt(cell.innerHTML); //assign value in cell to var
+      
+      if (!isNaN(num)) { //check input = only numbers
+        //https://www.w3schools.com/jsref/jsref_isnan.asp
+        if(num <= 100 || num >= 0){ //check inputted grade is only 0-100 
+        sum += num;
+        rows[i].cells[j].style.backgroundColor = "white";
+        rows[i].cells[j].style.color = "black";
+        rows[i].cells[j].style.textAlign = "right"
+        }
+      } else { //if it's not 0-100, then it is invalid
+        rows[i].cells[j].style.backgroundColor = "yellow";
+        rows[i].cells[j].style.color = "black";
+        rows[i].cells[j].innerHTML = "-";
+      }
+    }
+    
+    var avg = sum / 5; //calculate average of the 5 grades
+
+    if (avg < 60) { //check if grade is above or below 60
+      rows[i].cells[7].innerHTML = "<td>" + Math.round(avg) + "%" + "</td>";
+      rows[i].cells[7].style.backgroundColor = "orange";
+      rows[i].cells[7].style.color = "white";
+      rows[i].cells[7].style.textAlign = "right"
+    } else {
+      rows[i].cells[7].innerHTML = "<td>" + Math.round(avg) + "%" + "</td>";
+      rows[i].cells[7].style.backgroundColor = "white";
+      rows[i].cells[7].style.color = "black";
+      rows[i].cells[7].style.textAlign = "right"
+    }
+  }
+}
+
+/* Browser used for testing: Google Chrome version 98.0.4758.102 
+Operating System: Windows 10*/
+</script>
+</html>
+

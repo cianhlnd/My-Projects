@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Store Database</title>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <style>
+        h1 {
+            font: 30px Verdana;
+            text-align: center;
+        }
+        h2 {
+            font: 20px Verdana;
+            text-align: center;
+        }
+        legend {
+            padding: 10px;
+            font: 30px Verdana
+        }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="#create-pane">Customers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#retrieve-pane">Stock</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#update-pane">Orders</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#delete-pane">Delete</a>
+        </li>
+      </ul>
+    </nav>
+
+    <br />
+    <div class="tab-content">
+      <div id="create-pane" class="container tab-pane show active">
+        <div class="row justify-content-center">
+          <p>Enter the information to create a new record.</p>
+          <form class="form-horizontal">
+            <fieldset>
+              <!--Personal Details Form-->
+
+              <legend>Personal Details</legend>
+
+              <!--Title-->
+              <div class = "form-group">
+                <label class = "col-md-4 control-label" for="title">Title</label>
+                  <div class="col-md-4">
+                    <input id="create_title" name="title"
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- First Name -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="firstname">First Name</label>
+                  <div class="col-md-4">
+                    <input id="create_firstname" name="firstname" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- Surname -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="surname">Surname</label>
+                  <div class="col-md-4">
+                    <input id="create_surname" name="surname" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+             <!-- Mobile Number -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="mobile">Mobile Number</label>
+                  <div class="col-md-4">
+                    <input id="create_mobile" name="mobile" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- Email Address -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="email">Email Address</label>
+                  <div class="col-md-4">
+                    <input id="create_email" name="email"
+                        class="form-control input-md">
+                  </div>
+              </div>
+
+              <!-- Home Address Form -->
+
+              <legend>Home Address</legend>
+
+              <!-- Address Line 1 -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="address_line1">Address Line 1</label>
+                  <div class="col-md-4">
+                    <input id="create_home_address_line1" name="address_line1"
+                        class="form-control input-md">
+                </div>
+              </div>
+              <!-- Address Line 2-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="address_line2">Address Line 2</label>
+                  <div class="col-md-4">
+                    <input id="create_home_address_line2" name="address_line2" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- Town -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="town">Town</label>
+                  <div class="col-md-4">
+                    <input id="create_home_town" name="town" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- City/County -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="city_county">City/County</label>
+                  <div class="col-md-4">
+                    <input id="create_home_city_county" name="city_county" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- Eircode -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="eircode">Eircode</label>
+                  <div class="col-md-4">
+                    <input id="create_home_eircode" name="eircode" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+
+              <!-- Shipping Address Form -->
+
+              <legend>Shipping Address</legend>
+
+              <!-- Address Line 1 -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="address_line1">Address Line 1</label>
+                  <div class="col-md-4">
+                    <input id="create_shipping_address_line1" name="address_line1" 
+                        class="form-control input-md">
+                </div>
+              </div>
+              <!-- Address Line 2-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="address_line2">Address Line 2</label>
+                  <div class="col-md-4">
+                    <input id="create_shipping_address_line2" name="address_line2" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- Town -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="town">Town</label>
+                  <div class="col-md-4">
+                    <input id="create_shipping_town" name="town" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- City/County -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="city_county">City/County</label>
+                  <div class="col-md-4">
+                    <input id="create_shipping_city_county" name="city_county" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- Eircode -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="eircode">Eircode</label>
+                  <div class="col-md-4">
+                    <input id="create_shipping_eircode" name="eircode" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+
+              <!-- Submit -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-4">
+                    <input type="button" value="Submit" class="btn btn-primary" onclick="createUser();">
+                  </div>
+              </div>
+
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      
+      <div id="retrieve-pane" class="container tab-pane">
+        <div class="row justify-content-center">
+          <p>Enter your information to retrieve a record.</p>
+          <!-- First Name -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="firstname">First Name</label>
+            <div class="col-md-4">
+              <input name="firstname" 
+                    class="form-control input-md">
+            </div>
+          </div>
+          <!-- Surname -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="surname">Surname</label>
+            <div class="col-md-4">
+              <input name="surname" 
+                    class="form-control input-md">
+            </div>
+          </div>
+          <!-- Retrieve Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="submit"></label>
+            <div class="col-md-4">
+              <input type="button" value="Retrieve" class="btn btn-primary" onclick="retrieveUsers();">
+            </div>
+          </div>
+          <!-- Div for JSON -->
+          <div class="form-group" style="margin-top: 20px;">
+            <label class="col-md-4 control-label">Results:</label>
+            <div class="container border"><br/></div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="update-pane" class="container tab-pane">
+        <div class="row justify-content-center">
+          <p>Enter the ID of the record and fill in only the fields which you want to update (first name and surname can't be changed).</p>
+          <legend>I.D.</legend>
+          <!-- ID -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="id">I.D.</label>
+            <div class="col-md-4">
+              <input id="update_id" name="id" 
+                     class="form-control input-md">
+            </div>
+          </div>
+          <legend>Personal Details</legend>
+          <!-- Title -->
+          <div class = "form-group">
+                <label class = "col-md-4 control-label" for="title">Title</label>
+                  <div class="col-md-4">
+                    <input id="update_title" name="title" 
+                        class="form-control input-md">
+                  </div>
+           </div>
+          <!-- Mobile -->
+          <div class="form-group">
+                <label class="col-md-4 control-label" for="mobile">Mobile Number</label>
+                  <div class="col-md-4">
+                    <input id="update_mobile" name="mobile" 
+                        class="form-control input-md">
+                  </div>
+          </div>
+          <!-- Email Address -->
+          <div class="form-group">
+                <label class="col-md-4 control-label" for="email">Email Address</label>
+                  <div class="col-md-4">
+                    <input id="update_email" name="email" 
+                        class="form-control input-md">
+                  </div>
+          </div>
+          
+          <legend>Home Address</legend>
+
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="address_line1">Address Line 1</label>
+                  <div class="col-md-4">
+                    <input id="update_home_address_line1" name="address_line1" 
+                        class="form-control input-md">
+                </div>
+              </div>
+              <!-- Address Line 2-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="address_line2">Address Line 2</label>
+                  <div class="col-md-4">
+                    <input id="update_home_address_line2" name="address_line2" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- Town -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="town">Town</label>
+                  <div class="col-md-4">
+                    <input id="update_home_county" name="town" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- City/County -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="city_county">City/County</label>
+                  <div class="col-md-4">
+                    <input id="update_home_city_county" name="city_county" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- Eircode -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="eircode">Eircode</label>
+                  <div class="col-md-4">
+                    <input id="update_home_eircode" name="eircode" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+
+              <legend>Shipping Address</legend>
+
+              <!-- Address Line 1 -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="address_line1">Address Line 1</label>
+                  <div class="col-md-4">
+                    <input id="update_shipping_address_line1" name="address_line1" 
+                        class="form-control input-md">
+                </div>
+              </div>
+              <!-- Address Line 2-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="address_line2">Address Line 2</label>
+                  <div class="col-md-4">
+                    <input id="update_shipping_address_line2" name="address_line2" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- Town -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="town">Town</label>
+                  <div class="col-md-4">
+                    <input id="update_shipping_town" name="town" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- City/County -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="city_county">City/County</label>
+                  <div class="col-md-4">
+                    <input id="update_shipping_city_county" name="city_county" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- Eircode -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="eircode">Eircode</label>
+                  <div class="col-md-4">
+                    <input id="update_shipping_eircode" name="eircode" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+
+              <!-- Update Button -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-4">
+                    <input type="button" value="Update" class="btn btn-primary" onclick="updateUser();">
+                  </div>
+              </div>
+        </div>
+      </div>
+      
+      <div id="delete-pane" class="container tab-pane">
+        <div class="row justify-content-center">
+          <p>Enter your information to delete a record.</p>
+          <legend>Delete all records using:</legend>
+          <!-- First Name -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="firstname">First Name</label>
+                  <div class="col-md-4">
+                    <input id="firstname" name="firstname" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- Surname -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="surname">Surname</label>
+                  <div class="col-md-4">
+                    <input id="surname" name="surname" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+             <!-- Mobile Number -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="mobile">Mobile Number</label>
+                  <div class="col-md-4">
+                    <input id="mobile" name="mobile" 
+                        class="form-control input-md">
+                  </div>
+              </div>
+              <!-- Email Address -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="email">Email Address</label>
+                  <div class="col-md-4">
+                    <input id="email" name="email"
+                        class="form-control input-md">
+                  </div>
+              </div>
+             <!-- Delete Button -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-4">
+                    <input type="button" value="Delete" class="btn btn-primary" onclick="deleteUsers();">
+                  </div>
+              </div>
+          
+        </div>
+      </div>
+    </div>
+  
+<?php
+
+// set up the connection to the datbase
+$Webcourse.cs.nuim.ie = mysqli_connect($webcourse, $u210268, $Olu5apheic9iegha) or die ("Unable to Connect to '$cs230_u210268'");
+mysqli_select_db($Webcourse.cs.nuim.ie, $cs230_u210268) or die("Could not open the db '$cs230_u210268'");
+?>
+<script>
+
+function createUser() {
+    $.Home_Address = array(
+      method: "POST",
+      path: "https://webcourse.cs.nuim.ie/phpmyadmin/index.php?route=/database/structure&server=1&db=cs230_u210268",
+      data: {
+      title: $("#create_title").val(),
+      first_name: $("#create_first_name").val(),
+      surname: $("#create_surname").val(),
+      email_address: $("#create_email").val(),
+      mobile: $("#create_mobile").val(),
+      home_address: {
+        address_line1: $("#create_home_address_line1").val(),
+        address_line2: $("#create_home_address_line2").val(),
+        town: $("#create_home_town").val(),
+        city_county: $("#create_home_city_county").val(),
+        eircode: $("#create_home_eircode").val()
+      },
+      shipping_address: {
+        address_line1: $("#create_shipping_address_line1").val(),
+        address_line2: $("#create_shipping_address_line2").val(),
+        town: $("#create_shipping_town").val(),
+        city_county: $("#create_shipping_city_county").val(),
+        eircode: $("#create_shipping_eircode").val()
+      }
+    }
+  );
+  }
+  function retrieveUsers() {
+    console.log("R");
+  }
+  function updateUser() {
+    console.log("U");
+  }
+  function deleteUsers() {
+    console.log("D");
+  }
+  
+  </script>
+  </body>
+</html>
